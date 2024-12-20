@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <script>
+      function embedPdf() {
+        const pdfUrl = "assets/test.pdf"; 
+        let pdfViewerEmbed = document.getElementById("jsEmbed");
+        pdfViewerEmbed.setAttribute("src", pdfUrl);
+        pdfViewerEmbed.outerHTML = pdfViewerEmbed.outerHTML.replace(/src="(.+?)"/, 'src="' + pdfUrl + '"'); 
+      }
+      window.onload = function() {
+        embedPdf()
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Using embed tag dynamically</h1>
+      <embed id="jsEmbed" type="application/pdf" width="50%" height="50%">
+    </div>
+  </body>
+</html>

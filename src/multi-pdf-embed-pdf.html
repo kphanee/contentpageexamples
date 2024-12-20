@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Multiple Embedded PDF Documents</title>
+  </head>
+  <body>
+    <h3>Multiple Embedded PDF Documents</h3>
+    <table>
+      <tr>
+        <td>
+          <h5>embed tag with pdf</h5>
+          <embed type="application/pdf" src="assets/PDF_Form_File.pdf" width="250" height="450" />
+        </td>
+        <td>
+          <h5>object tag with pdf</h5>
+          <object width="250" height="450" data="assets/test.pdf" type="application/pdf"></object>
+        </td>
+        <td>
+          <h5>embed inside object tag with pdf</h5>
+          <object>
+            <embed type="application/pdf" src="assets/PDF_With_Links.pdf" width="250" height="450" />
+          </object>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

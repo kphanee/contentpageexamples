@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <script>
+      function embedPdf() {
+        const pdfUrl = "assets/test.pdf"; 
+        document.getElementById("jsIframe").src = pdfUrl;
+        // setTimeout(() => {
+        //   const element = document.getElementById('jsIframe')
+        //   const parent = document.getElementById('parent')
+        //   parent.removeChild(element)
+        // }, 10000);
+      }
+      function hidePdf() {
+        const element = document.getElementById('jsIframe');
+        const hideButton = document.getElementById("hide");
+        if (hideButton.value === "Hide PDF") {
+          hideButton.value = "Show PDF";
+          element.style = "visibility: hidden";
+          element.width = 0;
+          element.height = 0;
+        } else {
+          hideButton.value = "Hide PDF";
+          element.style = "visibility: visible";
+          element.width = "50%";
+          element.height = "50%";
+        }
+      }
+      function changePdf() {
+        const button = document.getElementById("change");
+        if (button.value === "Change PDF") {
+          button.value = "Revert PDF";
+          const element = document.getElementById('jsIframe');
+          element.src = "assets/PDF_With_Links.pdf";
+        } else {
+          button.value = "Change PDF";
+          const element = document.getElementById('jsIframe');
+          element.src = "assets/test.pdf";
+        }
+      }
+      window.onload = function() {
+        embedPdf();
+
+        const button = document.getElementById("change");
+        button.addEventListener("click", changePdf);        
+        const hideButton = document.getElementById("hide");
+        hideButton.addEventListener("click", hidePdf);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="parent" class="container">
+      <h1>Using iframe tag dynamically</h1>
+      <iframe id="jsIframe" width="50%" height="50%"></iframe>
+      <div class="block">
+        <input id="change" type="button" value="Change PDF" />
+        <input id="hide" type="button" value="Hide PDF" />  
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Embed PDF with x-google-chrome-pdf in JS</title>
+  </head>
+  <body>
+    <iframe id="rendered-pdf"></iframe>
+    <script>
+      // Render the element
+      const renderedElement = document.getElementById("rendered-pdf");
+      renderedElement.src = 'assets/PDF_With_Links.pdf';
+      renderedElement.width = '50%';
+      renderedElement.height = '50%';
+      renderedElement.style.display = "block"; // Show the element
+    </script>
+  </body>
+</html>

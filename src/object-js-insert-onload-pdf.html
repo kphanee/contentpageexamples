@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <script>
+      function embedPdf() {
+        const pdfUrl = "assets/test.pdf"; 
+        let pdfViewerObject = document.getElementById("jsObject");
+        pdfViewerObject.setAttribute("data", pdfUrl);
+        pdfViewerObject.outerHTML = pdfViewerObject.outerHTML.replace(/data="(.+?)"/, 'data="' + pdfUrl + '"');
+      }
+      window.onload = function() {
+        embedPdf()
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Using object tag dynamically</h1>
+      <object id="jsObject" type="application/pdf" width="50%" height="50%"></object>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <script>
+      function embedPdf() {
+        const pdfUrl = "assets/test.pdf"; 
+        document.getElementById("jsIframe").src = pdfUrl;
+      }
+      window.onload = function() {
+        embedPdf()
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Using iframe tag dynamically</h1>
+      <iframe id="jsIframe" width="50%" height="50%"></iframe>
+    </div>
+  </body>
+</html>

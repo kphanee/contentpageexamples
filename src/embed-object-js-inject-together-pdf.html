@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>OPEN PDF WITH SCRIPT</title>
+  </head>
+  <body>
+    <div>
+      <h3>Click Below Button to Open/Close PDF in Embed Tag using Script</h3>
+      <div class="box" id="boxEmbed"></div>
+      <button id="openEmbed">Open embed</button>
+    </div>
+    <div>
+      <h3>Click Below Button to Open/Close PDF in Object Tag using Script</h3>
+      <div class="box" id="boxObject"></div>
+      <button id="openObject">Open Object</button>
+    </div>
+    <script>
+    let embedOpen = false;
+    let objectOpen = false;
+
+    function handleEmbedClick(e, box) {
+      e.preventDefault();
+      if (!embedOpen) {
+        const embed = document.createElement("embed");
+        embed.setAttribute("width", "100%");
+        embed.setAttribute("height", "500px");
+        embed.setAttribute("src", "assets/test.pdf");
+        box.appendChild(embed);
+        document.getElementById("openEmbed").textContent = "Close embed";
+        embedOpen = true;
+      } else {
+        box.innerHTML = "";
+        document.getElementById("openEmbed").textContent = "Open embed";
+        embedOpen = false;
+      }
+    }
+
+    function handleObjectClick(e, box) {
+      e.preventDefault();
+      if (!objectOpen) {
+        const object = document.createElement("object");
+        object.setAttribute("width", "100%");
+        object.setAttribute("height", "500px");
+        object.setAttribute("data", "assets/test.pdf");
+        box.appendChild(object);
+        document.getElementById("openObject").textContent = "Close Object";
+        objectOpen = true;
+      } else {
+        box.innerHTML = "";
+        document.getElementById("openObject").textContent = "Open Object";
+        objectOpen = false;
+      }
+    }
+
+    const openEmbed = document.getElementById("openEmbed");
+    const openObject = document.getElementById("openObject");
+    const boxEmbed = document.getElementById("boxEmbed");
+    const boxObject = document.getElementById("boxObject");
+
+    openEmbed.addEventListener("click", (e) => handleEmbedClick(e, boxEmbed));
+    openObject.addEventListener("click", (e) => handleObjectClick(e, boxObject));
+    </script>
+  </body>
+</html>

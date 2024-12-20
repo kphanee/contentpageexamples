@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- CSP to allow resources only from qa-tools-appsulate.onrender.co -->
+	<meta http-equiv="Content-Security-Policy" content="object-src https://qa-tools-appsulate.onrender.com; frame-src https://qa-tools-appsulate.onrender.com;">
+	<title>PDF Viewer Component</title>
+</head>
+<body>
+	<h1>PDF with CSP restrict to qa-tools-appsulate.onrender.com doamin</h1>
+	<pdf-viewer pdf-url="assets/test.pdf"></pdf-viewer>
+
+	<p>
+		END
+		we are not able to see 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf' 
+	</p>
+	<script>
+		class PdfViewer extends HTMLElement {
+			constructor() {
+				super();
+
+				// Create a shadow DOM
+				const shadow = this.attachShadow({ mode: 'open' });
+
+				// Create container
+				const container = document.createElement('div');
+				container.style.display = 'flex';
+				container.style.flexDirection = 'column';
+				container.style.gap = '20px';
+
+				// Embed tag
+				const embed = document.createElement('embed');
+				embed.type = 'application/pdf';
+				embed.width = '600px';
+				embed.height = '400px';
+
+				// Object tag
+				const object = document.createElement('object');
+				object.type = 'application/pdf';
+				object.width = '600px';
+				object.height = '400px';
+
+				// Set the source URL from the "pdf-url" attribute
+				const pdfUrl = this.getAttribute('pdf-url');
+				if (pdfUrl) {
+					embed.src = pdfUrl;
+					object.data = pdfUrl;
+				} else {
+					const error = document.createElement('p');
+					error.textContent = 'PDF URL is missing!';
+					container.appendChild(error);
+				}
+
+				// Append the tags to the container
+				container.appendChild(embed);
+				container.appendChild(object);
+
+				// Append the container to the shadow DOM
+				shadow.appendChild(container);
+			}
+		}
+
+		// Define the new custom element
+		customElements.define('pdf-viewer', PdfViewer);
+	</script>
+</body>
+</html>

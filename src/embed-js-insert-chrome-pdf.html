@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Embed PDF with x-google-chrome-pdf</title>
+  </head>
+  <body>
+    <div id="rendered-pdf"></div>
+    <script>
+      // Render the element
+      const renderedElement = document.getElementById("rendered-pdf");
+      renderedElement.innerHTML = '<h3>Embedded PDF with Chrome PDF Type</h3><embed src="assets/PDF_With_Links.pdf" class="embedStyles" type="application/x-google-chrome-pdf" />';
+      renderedElement.style.display = "block"; // Show the element
+    </script>
+  </body>
+</html>

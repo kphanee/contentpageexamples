@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Object PDF</title>
+  </head>
+  <body>
+    <div id="rendered-pdf"></div>
+    <script>
+      // Render the element
+      const renderedElement = document.getElementById("rendered-pdf");
+      renderedElement.innerHTML = '<h3>Object tag with pdf</h3><object type="application/pdf" data="assets/PDF_Form_File.pdf" class="embedStyles"></object>';
+      renderedElement.style.display = "block"; // Show the element
+    </script>
+  </body>
+</html>
