@@ -2,6 +2,25 @@
 <html>
   <head>
     <style>
+      /*.column {
+        float: left;
+      }
+      .left {
+        width: 50%;
+      }
+      .right {
+        width: 50%;
+      }*/
+      .column {
+        float: left;
+        width: 50%;
+      }
+      /* Clear floats after the columns */
+      .row:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
       /* Add space between list items */
       li {
         margin-bottom: 10px; /* Adjust this value to control the space */
@@ -9,33 +28,43 @@
     </style>
   </head>
   <body>
-    <h1>PDFTron Loading Test</h1>
-    <ul>
-       <li><a href="./embed-csp-rule-pdf.html">embed csp_rule_pdf</a></li>
-       <li><a href="./embed-csp-rule-pdftron.html">embed csp_rule_pdftron</a></li>
-       <li><a href="./embed-csp-rule-http-headers.html">embed csp_rule_http_headers</a></li>
-       <li><a href="./embed-csp-rule-pdf-http-headers.html">embed csp_rule_http_headers_to_pdf</a></li>
-       <li><a href="./embed-csp-pdf.html">embed csp_pdf no-shadow-dom</a></li>
-       <li><a href="./embed-csp-http-headers.html">embed csp_http_headers no-shadow-dom</a></li>
-       <li><a href="./embed-csp-pdf-http-headers.html">embed csp_http_headers_to_pdf no-shadow-dom</a></li>
-       <li><a href="./embed-dup-file-pdf.html">embed_dup_file_pdf</a></li>
-       <li><a href="./embed-js-insert-chrome-pdf.html">embed_js_insert_chrome_pdf</a></li>
-       <li><a href="./embed-js-insert-onload-pdf.html">embed_js_insert_onload_pdf</a></li>
-       <li><a href="./embed-js-insert-pdf.html">embed_js_insert_pdf</a></li>
-       <li><a href="./embed-object-js-inject-together-pdf.html">embed_object_js_inject_together_pdf</a></li>
-       <li><a href="./embed-object-js-insert-pdf.html">embed_object_js_insert_pdf</a></li>
-       <li><a href="./embed-object-shadow-dom-pdf.html">embed_object_shadow_dom_pdf</a></li>
-       <li><a href="./embed-pdf.html">embed_pdf</a></li>
-       <li><a href="./iframe-change-behaviour-pdf.html">iframe_change_behaviour_pdf</a></li>
-       <li><a href="./iframe-chrome-pdf.html">iframe_chrome_pdf</a></li>
-       <li><a href="./iframe-js-insert-chrome-pdf.html">iframe_js_insert_chrome_pdf</a></li>
-       <li><a href="./iframe-js-insert-pdf.html">iframe_js_insert_pdf</a></li>
-       <li><a href="./ifrme-js-insert-remove-pdf.html">ifrme_js_insert_remove_pdf</a></li>
-       <li><a href="assets/PDF_With_Links.pdf">main_frame_pdf</a></li>
-       <li><a href="./multi-pdf-embed-pdf.html">multi_pdf_embed_pdf</a></li>
-       <li><a href="./object-js-insert-onload-pdf.html">object_js_insert_onload_pdf</a></li>
-       <li><a href="./object-js-insert-pdf.html">object_js_insert_pdf</a></li>
-       <li><a href="./object-pdf.html">object_pdf</a></li>
-    </ul>
+    <div class="row">
+      <div class="column">
+        <h1>PDFTron Loading Test</h1>
+        <ul>
+           <li><a href="./embed-csp-rule-pdf.html">embed csp_rule_pdf</a></li>
+           <li><a href="./embed-csp-rule-pdftron.html">embed csp_rule_pdftron</a></li>
+           <li><a href="./embed-csp-rule-http-headers.html">embed csp_rule_http_headers</a></li>
+           <li><a href="./embed-csp-rule-pdf-http-headers.html">embed csp_rule_http_headers_to_pdf</a></li>
+           <li><a href="./embed-csp-pdf.html">embed csp_pdf no-shadow-dom</a></li>
+           <li><a href="./embed-csp-http-headers.html">embed csp_http_headers no-shadow-dom</a></li>
+           <li><a href="./embed-csp-pdf-http-headers.html">embed csp_http_headers_to_pdf no-shadow-dom</a></li>
+           <li><a href="./embed-dup-file-pdf.html">embed_dup_file_pdf</a></li>
+           <li><a href="./embed-js-insert-chrome-pdf.html">embed_js_insert_chrome_pdf</a></li>
+           <li><a href="./embed-js-insert-onload-pdf.html">embed_js_insert_onload_pdf</a></li>
+           <li><a href="./embed-js-insert-pdf.html">embed_js_insert_pdf</a></li>
+           <li><a href="./embed-object-js-inject-together-pdf.html">embed_object_js_inject_together_pdf</a></li>
+           <li><a href="./embed-object-js-insert-pdf.html">embed_object_js_insert_pdf</a></li>
+           <li><a href="./embed-object-shadow-dom-pdf.html">embed_object_shadow_dom_pdf</a></li>
+           <li><a href="./embed-pdf.html">embed_pdf</a></li>
+           <li><a href="./iframe-change-behaviour-pdf.html">iframe_change_behaviour_pdf</a></li>
+           <li><a href="./iframe-chrome-pdf.html">iframe_chrome_pdf</a></li>
+           <li><a href="./iframe-js-insert-chrome-pdf.html">iframe_js_insert_chrome_pdf</a></li>
+           <li><a href="./iframe-js-insert-pdf.html">iframe_js_insert_pdf</a></li>
+           <li><a href="./ifrme-js-insert-remove-pdf.html">ifrme_js_insert_remove_pdf</a></li>
+           <li><a href="assets/PDF_With_Links.pdf">main_frame_pdf</a></li>
+           <li><a href="./multi-pdf-embed-pdf.html">multi_pdf_embed_pdf</a></li>
+           <li><a href="./object-js-insert-onload-pdf.html">object_js_insert_onload_pdf</a></li>
+           <li><a href="./object-js-insert-pdf.html">object_js_insert_pdf</a></li>
+           <li><a href="./object-pdf.html">object_pdf</a></li>
+        </ul>
+      </div>
+      <div class="column">
+        <h1>Read Only Test</h1>
+        <ul>
+          <li><a href="./read-only.html">read only test page</a></li>
+        </ul>
+      </div>
+    </div>   
   </body>
 </html>

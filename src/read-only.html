@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>ReadOnly Test Page</title>
+  <style>
+    input[type='submit'],
+    input[type='image'],
+    input[type='checkbox'],
+    input[type='radio'],
+    select {
+      padding: 6px 20px;
+      margin: 6px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }    
+    .tooltip {
+        position: relative;
+        display: inline-block;
+    }
+    .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 120px;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 5px;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%;
+        left: 50%;
+        margin-left: -60px;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+    }
+    .input-container { margin-left: 16px; float: left; }
+    .node-element-container { margin-right: 16px; float: right; }
+    .field {
+        margin-bottom: 8px;
+        margin-top: 8px;
+    }
+    .field-element {
+        border: 1px solid #ccc;
+        width: 200px;
+        padding: 5px 20px;
+    }
+  </style>
+  <script>
+    function registerKeyEvents(element) {
+      element.addEventListener('keydown', (event) => {
+        console.log('keydown: ' + event.key + '---' + event.code)
+      });
+      element.addEventListener('keyup', (event) => {
+        console.log('keyup: ' + event.key + '---' + event.code)
+      });
+      element.addEventListener('input', (event) => {
+        console.log('input: ' + event.target.value)
+      });
+    }
+    function focusElement(id) {
+      const e = document.getElementById(id);
+      e.focus();
+      registerKeyEvents(e);
+    }
+  </script>
+</head>
+<body>
+  <div class="input-container">
+    <div class="field">
+      <input type="text" id="name" name="name" placeholder="Name" />
+    </div>
+    <div class="field">
+      <input type="email" id="email" name="email" placeholder="Email address" />
+    </div>
+    <div class="field">
+      <input type="password" id="pass" name="password" minlength="8" required />
+    </div>
+    <div class="field">
+      <textarea name="message" id="message" rows="2" placeholder="Message"></textarea>
+    </div>
+    <div class="field">
+      <input type="search" id="site-search" name="q" placeholder="Search"/>
+    </div>
+    <div class="field">
+      <input type="url" name="url" id="url" placeholder="https://example.com" pattern="https://.*" size="30" required />
+    </div>
+    <div class="field">
+      <input type="number" id="phone" name="phone" placeholder="Phone number" />
+    </div>
+    <div class="field">
+      <input type="tel" id="tel-phone" name="tel-phone" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required />
+    </div>
+    <div class="field">
+      <input type="date" id="trip-start" name="trip-start" min="2024-01-01" max="2024-12-31" required />
+    </div>
+    <div class="field">
+      <input type="time" id="start-time" name="start-time" min="08:00" max="20:00" required />
+    </div>
+    <div class="field">
+      <input type="month" id="start-month" name="start-month" min="2024-01" max="2024-12" required />
+    </div>
+    <div class="field">
+      <input type="week" name="camp-week" id="camp-week" min="2024-W10" max="2024-W30" required />
+    </div>
+    <div class="field">
+      <input type="datetime-local" id="meeting-time" name="meeting-time" min="2024-08-01T00:00" max="2024-08-15T00:00" required />
+    </div>
+    <div class="field">
+      <input type="radio" id="male" name="gender" value="male" />
+      <label for="male">Male</label>
+    </div>
+    <div class="field">
+      <input type="checkbox" id="skill" name="skill[]" value="c++" />
+      <label for="skill">C++</label>
+    </div>
+    <div class="field">
+      <select id="country" name="country">
+        <option value="india">India</option>
+        <option value="australia">Australia</option>
+      </select>
+    </div>
+    <div class="field">
+      <input type="color" id="body" name="body" value="#f6b73c" />
+      <!--label for="body">Body</label-->
+    </div>
+    <div class="field">
+      <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg" />
+    </div>
+    <div class="field">
+      <input type="image" id="image" alt="Login" src="submit.gif" />
+    </div>
+    <div class="field">
+      <input type="range" id="cowbell" name="cowbell" min="0" max="100" value="90" step="10" />
+      <label for="cowbell">Cowbell</label>
+    </div>      
+    <div class="tooltip">
+      <input type="submit" value="Submit" />
+      <span class="tooltiptext">Submit</span>
+    </div>
+  </div>
+  <div class="node-element-container">
+    <div class="field">
+      <div class="field-element" id="content-editable" contenteditable="true">Placeholder Area</div>
+    </div>
+    <div class="field">
+      <div class="field-element" id="inner-text">Initial Text</div>
+    </div>
+    <div class="field">
+      <div class="field-element" id="content-editable-inner-html" contenteditable="true">Editable Inner HTML</div>
+    </div>
+    <div class="field">
+      <div class="field-element" id="inner-html">Initial HTML</div>
+    </div>
+    <div class="field">
+      <div class="field-element" id="text-content">Initial Text Content</div>
+    </div>
+  </div>
+</body>
+</html>
